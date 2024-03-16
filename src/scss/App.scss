@@ -1,0 +1,139 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,500,700&display=swap');
+
+body {
+  background-color: black;
+  color: aliceblue;
+  font-family: "Roboto";
+}
+
+h2 {
+  color: white;
+
+}
+
+h3 {
+  width: 10vw;
+}
+
+header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+}
+
+.nav {
+  display: flex;
+  gap: 20px;
+
+
+}
+
+.masterContainer {
+  display: flex;
+  //flex-direction: row-reverse;
+  width: 100vw;
+  margin: 15px;
+  border-radius: 5px;
+  justify-content: start;
+
+}
+
+.reverse {
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.delButn {
+  width: 30px;
+  height: 30px;
+  background-color: red;
+  border-radius: 30px;
+  text-align: center;
+  justify-content: center;
+  padding: 5px;
+
+}
+
+.searchList {
+
+  display: grid;
+  grid-template-columns: repeat(4, 250px);
+  gap: 5px;
+  max-height: 50vh;
+
+
+  .completeAnime {
+
+    // height: 30vh;
+    padding: 10px;
+
+
+    img {
+      min-width: 50px;
+      max-width: 170px;
+      max-height: 300px;
+
+    }
+
+  }
+
+
+}
+
+.favsList {
+  width: 30vw;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: 5px;
+
+
+}
+
+.selected {
+  background-color: black;
+  color: blue;
+  border: 3px solid blue;
+
+
+}
+
+.favsItems {
+  margin-bottom: 10px;
+  min-width: 10vw;
+  width: 20vw;
+  color: white;
+  border: 3px solid lightskyblue;
+  display: flex;
+  gap: 10px;
+  padding: 10px;
+
+  img {
+    width: 5vw;
+  }
+}
+
+
+
+.hidden {
+  display: none;
+}
+
+.searchInput {
+  padding: 5px 25px;
+  border: 1px solid lightskyblue;
+  width: 20vw;
+}
+
+.searchBtn {
+  padding: 10px 20px;
+  background-color: lightskyblue;
+  border-radius: 21px;
+}
+
+.resetBtn {
+  padding: 10px 20px;
+  background-color: lightskyblue;
+  border-radius: 21px;
+}
