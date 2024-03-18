@@ -81,7 +81,6 @@ function App() {
                 <h2>Animes favoritos</h2>
                 {favArray.map(anime => (
                   <div className='completeAnime favsItems ' key={anime.mal_id}>
-
                     <img src={anime.images?.jpg?.image_url || 'https://via.placeholder.com/210x295/ffffff/666666/?text=TV'} alt={anime.title} />
                     <h3>{anime.title}</h3>
                     <button className="delButn " onClick={() => handleRemoveFromFavorites(anime.mal_id)}>X</button>
