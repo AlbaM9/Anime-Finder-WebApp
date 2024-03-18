@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react';
+import Card from "./Card"
 import '../scss/App.scss';
+
 
 
 function App() {
   const [animesToShow, setAnimesToShow] = useState([]);
   let [favArray, setFavArray] = useState([]);
-  const [searchTerm, setSearchTerm] = useState('');
+   const [searchTerm, setSearchTerm] = useState('');
   const [savedAnimes, setSavedAnimes] = useState([]);
 
   useEffect(() => {
@@ -21,7 +23,10 @@ function App() {
   }, []);
 
   const handleFilter = (event) => {
+
+
     event.preventDefault();
+    
     const SERVER_URL = `https://api.jikan.moe/v4/anime?q=${searchTerm}`;
     fetch(SERVER_URL)
       .then(response => {
@@ -34,7 +39,9 @@ function App() {
         setAnimesToShow(data.data);
       })
       .catch(error => console.error('Error fetching data:', error));
+    
   };
+ 
 
   const handleAddToFavorites = (anime) => {
     const isAlreadyFavourite = favArray.some(fav => fav.mal_id === anime.mal_id);
@@ -80,7 +87,9 @@ function App() {
               <div>
                 <h2>Animes favoritos</h2>
                 {favArray.map(anime => (
-                  <div className='completeAnime favsItems ' key={anime.mal_id}>
+
+                //<Card addFavouritesProp = {handleRemoveFromFavorites} classBtn = {"delButn"} anime = {anime} typeBtn = "X" classItems = "favsItems" buttonParam={anime.mal_id}/>
+                 <div className='completeAnime favsItems ' key={anime.mal_id}>
                     <img src={anime.images?.jpg?.image_url || 'https://via.placeholder.com/210x295/ffffff/666666/?text=TV'} alt={anime.title} />
                     <h3>{anime.title}</h3>
                     <button className="delButn " onClick={() => handleRemoveFromFavorites(anime.mal_id)}>X</button>
@@ -94,16 +103,12 @@ function App() {
               <h2>Resultados de la búsqueda</h2>
             </div>
             <div className="searchList ">
-              {animesToShow.map(anime => (
-                <div className='completeAnime' key={anime.mal_id}>
-                  <img src={anime.images?.jpg?.image_url || 'https://via.placeholder.com/210x295/ffffff/666666/?text=TV'} alt={anime.title} />
-                  <h3>{anime.title}</h3>
-                  <button className="resetBtn" onClick={() => handleAddToFavorites(anime)}>Add to Favorites</button>
-                </div>
-              ))}
-            </div>
-
-
+            {animesToShow.map(anime => (
+              
+               //<Card addFavouritesProp = {handleAddToFavorites} classBtn = {"resetBtn"}anime = {anime} typeBtn = "Anadir a Favoritos" buttonParam={anime} classItems = "none"/>
+              <Card addFavouritesProp = {handleAddToFavorites} classBtn = {"resetBtn"} anime = {anime} typeBtn = {"Añadir a Favoritos" } classItems ={"none"} />
+            ))}
+             </div>
           </section>
 
         </div>
